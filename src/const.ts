@@ -68,11 +68,11 @@ export const NMAP_PLACE_ID = 13321741
 export const KMAP_PLACE_ID = 8634826
 
 // 신부 정보 설정
-export const BRIDE_FULLNAME = "정지원"
-export const BRIDE_FIRSTNAME = "지원"
+export const BRIDE_FULLNAME = "이소희"
+export const BRIDE_FIRSTNAME = "소희"
 export const BRIDE_TITLE = "장녀"
-export const BRIDE_FATHER = "정상원"
-export const BRIDE_MOTHER = "박윤정"
+export const BRIDE_FATHER = "이일선"
+export const BRIDE_MOTHER = "송필순"
 
 /**
  * 신부측 연락처 및 계좌 정보
@@ -99,11 +99,11 @@ export const BRIDE_INFO = [
 ]
 
 // 신랑 정보 설정
-export const GROOM_FULLNAME = "남주호"
-export const GROOM_FIRSTNAME = "주호"
-export const GROOM_TITLE = "차남"
-export const GROOM_FATHER = "남현태"
-export const GROOM_MOTHER = "김현영"
+export const GROOM_FULLNAME = "최세민"
+export const GROOM_FIRSTNAME = "세민"
+export const GROOM_TITLE = "장남"
+export const GROOM_FATHER = "최수원"
+export const GROOM_MOTHER = "홍승혜"
 
 /**
  * 신랑측 연락처 및 계좌 정보
