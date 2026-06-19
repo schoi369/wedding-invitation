@@ -11,8 +11,8 @@
 @use "./component/shareButton";
 
 :root {
-  --theme-color: #ff8585;
-  --theme-bg-color: #ffe7e7;
+  --theme-color: #f4879f;
+  --theme-bg-color: #ffe0e3;
   --alt-color: #c28080;
   --alt-bg-color: #f4f0f0;
   --dark-color: #282c34;
@@ -22,11 +22,15 @@
   --white-color: #ffffff;
   --red-color: #ff0000;
 
-  font-family: "MapoGoldenPier";
-  font-size: 20px;
-  @media (max-width: 500px) {
-    font-size: 4vw;
-  }
+  --reference-text-color: #181818;
+  --reference-pink: #ffbac1;
+  --reference-pink-light: #ffe0e3;
+  --reference-cream: #fbfbfb;
+  --reference-yellow: #ffea00;
+
+  font-family:
+    "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 16px;
 }
 
 @media print {
@@ -74,7 +78,8 @@ $colors: (
 }
 
 button {
-  font-family: "MapoGoldenPier";
+  font-family:
+    "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 1rem;
   border: none;
   background-color: transparent;
@@ -85,7 +90,8 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: #000000;
   &.modal-open {
     overflow-y: hidden;
   }
@@ -98,6 +104,24 @@ body {
   box-sizing: border-box;
   color: var(--dark-color);
   user-select: none;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.reference-page {
+  width: 100%;
+  max-width: 400px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #ffffff;
+  overflow: hidden;
+  text-align: center;
 }
 
 .background {

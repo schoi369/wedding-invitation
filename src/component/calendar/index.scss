@@ -1,98 +1,53 @@
 .calendar {
-  .calendar-wrapper {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    margin: 1rem;
-    border: 1px solid var(--light-grey-color);
+  background: var(--reference-pink);
 
-    > div {
-      aspect-ratio: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &.head {
-        aspect-ratio: auto;
-        background-color: var(--light-grey-color);
-      }
-
-      &.holiday {
-        > span {
-          color: var(--red-color);
-        }
-      }
-
-      &.wedding-date {
-        position: relative;
-
-        > span {
-          z-index: 1;
-        }
-
-        > div.heart {
-          width: 50%;
-          height: 50%;
-          background: var(--theme-bg-color);
-          top: 35%;
-          left: 25%;
-          position: absolute;
-          transform: rotate(45deg);
-          z-index: 0;
-          &::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: -50%;
-            left: 0%;
-            border-radius: 50%;
-            background: var(--theme-bg-color);
-          }
-          &::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: -50%;
-            border-radius: 50%;
-            background: var(--theme-bg-color);
-          }
-        }
-      }
-    }
+  .full-img {
+    line-height: 0;
   }
 
   .countdown-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 1.25rem 2.5rem;
+    color: var(--reference-text-color);
+  }
 
-    .countdown {
-      display: grid;
-      width: 15rem;
-      grid-template-columns: 1fr 1rem 1fr 1rem 1fr 1rem 1fr;
-      align-items: center;
-      * {
-        margin: 0 0.1rem;
-      }
-      .count {
-        opacity: 0.8;
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-      .unit {
-        font-weight: bold;
-        font-size: 0.6rem;
-        opacity: 0.5;
-      }
+  .countdown {
+    display: grid;
+    width: min(18rem, 100%);
+    grid-template-columns: 1fr 1rem 1fr 1rem 1fr 1rem 1fr;
+    align-items: center;
+    row-gap: 0.18rem;
+
+    .unit {
+      color: rgba(24, 24, 24, 0.55);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0;
     }
 
-    .message {
-      margin-top: 2rem;
-      margin-bottom: 1.5rem;
-      .d-day {
-        color: var(--theme-color);
-      }
+    .count,
+    span {
+      color: var(--reference-text-color);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .count {
+      font-size: 1.18rem;
+    }
+  }
+
+  .message {
+    margin-top: 1.25rem;
+    color: var(--reference-text-color);
+    font-size: 0.94rem;
+    line-height: 1.6;
+
+    .d-day {
+      color: #f4879f;
+      font-weight: 700;
     }
   }
 }

@@ -20,8 +20,21 @@ const baseUrl = import.meta.env.BASE_URL
  */
 export const ShareButton = () => {
   const kakao = useKakao()
+  const pageUrl =
+    window.location.protocol + "//" + window.location.host + baseUrl
+
+  const copyUrl = async () => {
+    try {
+      await navigator.clipboard.writeText(pageUrl)
+      alert("URL이 복사되었습니다.")
+    } catch {
+      alert("복사에 실패했습니다.")
+    }
+  }
+
   return (
-    <LazyDiv className="footer share-button">
+    <LazyDiv className="reference-section share-button">
+      <div className="share-top-space" />
       <button
         className="ktalk-share"
         onClick={() => {
@@ -80,6 +93,12 @@ export const ShareButton = () => {
       >
         <img src={ktalkIcon} alt="ktalk-icon" /> 카카오톡으로 공유하기
       </button>
+      <div className="share-gap" />
+      <button id="url_copy" onClick={copyUrl}>
+        청첩장 주소 복사하기
+      </button>
+      <p className="copyright">ⓒweddingpeach</p>
+      <div className="share-bottom-space" />
     </LazyDiv>
   )
 }

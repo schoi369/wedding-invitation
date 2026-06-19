@@ -1,58 +1,112 @@
-.cover {
-  .wedding-date {
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    .divider {
-      background-color: var(--dark-color);
-      width: 1px;
-      height: 0.7rem;
-    }
-  }
+.reference-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 
-  .wedding-day-of-week {
-    font-size: 1.2rem;
-    opacity: 0.7;
-    margin-bottom: 1rem;
-  }
-
-  .image-wrapper {
+  .full-img {
+    display: block;
     width: 100%;
-    height: 30rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    img {
-      width: 100%;
-      height: auto;
+  }
+}
+
+.cover {
+  background: #000000;
+  color: #ffffff;
+  line-height: 0;
+  text-align: center;
+
+  .cover-wrap {
+    width: 100%;
+    line-height: 0;
+  }
+
+  .save-the-date {
+    margin-top: 5rem;
+  }
+
+  .date-info {
+    padding: 1.25rem 2rem;
+    font-size: 0.94rem;
+    line-height: 1.8;
+
+    p {
+      color: #ffffff;
+      line-height: 1.8;
+      margin: 0;
     }
   }
 
-  .subtitle {
-    font-size: 1.5rem;
-    font-family: "Allura";
-    color: var(--alt-color);
-    margin-top: 1rem;
+  .envelope {
+    margin-top: 4.06rem;
+    margin-bottom: 4.06rem;
+  }
+
+  .handwrite {
+    display: block;
+    width: 80%;
+    margin: 0 auto 3.12rem;
   }
 
   .names {
-    margin-top: 0.5rem;
-    margin-bottom: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.7rem;
-    .divider {
-      background-color: var(--dark-color);
-      width: 1px;
-      height: 0.7rem;
+    padding: 1.25rem 2rem;
+    font-size: 0.94rem;
+    line-height: 2;
+
+    p,
+    strong {
+      color: #ffffff;
+      line-height: 1.4;
+      margin: 0;
     }
   }
-  .info {
-    margin-bottom: 0.3rem;
-    opacity: 0.7;
+
+  .cover-bottom-space {
+    height: 3.12rem;
+  }
+}
+
+.parents {
+  background: transparent;
+  line-height: 0;
+}
+
+.loveletter {
+  background: #ffffff;
+  line-height: 0;
+}
+
+.wedding-video {
+  background: #ffffff;
+  padding: 2.5rem 1.25rem;
+
+  .video-thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .video-play-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    line-height: 1;
+    padding-left: 0.15rem;
   }
 }
