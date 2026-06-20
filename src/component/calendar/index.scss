@@ -27,12 +27,13 @@
 
         > span {
           z-index: 1;
+          color: #ffffff
         }
 
         > div.heart {
           width: 50%;
           height: 50%;
-          background: var(--theme-bg-color);
+          background: #35624D;
           top: 35%;
           left: 25%;
           position: absolute;
@@ -46,7 +47,7 @@
             top: -50%;
             left: 0%;
             border-radius: 50%;
-            background: var(--theme-bg-color);
+            background: #35624D;
           }
           &::after {
             content: "";
@@ -55,7 +56,7 @@
             position: absolute;
             left: -50%;
             border-radius: 50%;
-            background: var(--theme-bg-color);
+            background: #35624D;
           }
         }
       }
