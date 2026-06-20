@@ -70,7 +70,7 @@ export const KMAP_PLACE_ID = 8634826
 // 신부 정보 설정
 export const BRIDE_FULLNAME = "이소희"
 export const BRIDE_FIRSTNAME = "소희"
-export const BRIDE_TITLE = "장녀"
+export const BRIDE_TITLE = "딸"
 export const BRIDE_FATHER = "이일선"
 export const BRIDE_MOTHER = "송필순"
 
@@ -101,7 +101,7 @@ export const BRIDE_INFO = [
 // 신랑 정보 설정
 export const GROOM_FULLNAME = "최세민"
 export const GROOM_FIRSTNAME = "세민"
-export const GROOM_TITLE = "장남"
+export const GROOM_TITLE = "아들"
 export const GROOM_FATHER = "최수원"
 export const GROOM_MOTHER = "홍승혜"
 
