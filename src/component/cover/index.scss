@@ -1,5 +1,6 @@
 .cover {
   .wedding-date {
+    font-family: "Libre Caslon Display", serif;
     margin-top: 2rem;
     font-size: 1.5rem;
     display: flex;
@@ -14,6 +15,7 @@
   }
 
   .wedding-day-of-week {
+    font-family: "Libre Caslon Display", serif;
     font-size: 1.2rem;
     opacity: 0.7;
     margin-bottom: 1rem;
@@ -33,7 +35,7 @@
 
   .subtitle {
     font-size: 1.5rem;
-    font-family: "Allura";
+    font-family: "Libre Caslon Display", serif;
     color: var(--alt-color);
     margin-top: 1rem;
   }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -14,11 +14,20 @@
     <meta property="og:image" content="/preview_image.png" />
     <meta property="og:url" content="%BASE_URL%/" />
     <meta property="og:description" content="<%= DESCRIPTION %>" />
-    <link rel="preload" href="/MapoGoldenPierA.woff" as="font" crossorigin />
-    <link rel="preload" href="/AlluraRegular.woff" as="font" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Libre+Caslon+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <link rel="manifest" href="/manifest.json" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/font.css" />
     <title><%= GROOM_FULLNAME %> ❤️ <%= BRIDE_FULLNAME %> 결혼합니다.</title>
   </head>
   <body>
