@@ -14,11 +14,22 @@ export const Information1 = () => {
     <>
       <h2 className="english">Information</h2>
       <div className="info-card">
-        <div className="label">식사 안내</div>
+        <div className="label">안내 사항</div>
         <div className="content">
-          식사시간: 12시 30분 ~ 14시 30분
+          <b>🌿 화환 안내</b>
           <br />
-          장소: 지하 1층 연회장
+          축하 화환은 환경 보호를 위해 정중히 사양하며,
+          <br />
+          축하해 주시는 마음만 감사히 받겠습니다.
+          <br />
+          <br />
+          <b>🥂 예식 안내</b>
+          <br />
+          예식은 1부와 2부로 진행됩니다.
+          <br />
+          1부 예식 후 식사를 먼저 즐기시고,
+          <br />
+          이어지는 2부 행사도 함께해 주세요.
         </div>
       </div>
     </>
