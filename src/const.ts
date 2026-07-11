@@ -65,7 +65,7 @@ export const NMAP_PLACE_ID = 1297636555
  * 카카오 지도 장소 ID (KMAP_PLACE_ID)
  * 카카오 지도에서 장소 상세보기 클릭 후 URL의 숫자 부분을 입력합니다.
  */
-export const KMAP_PLACE_ID = 8634826
+export const KMAP_PLACE_ID = 1290739532
 
 // 신부 정보 설정
 export const BRIDE_FULLNAME = "이소희"
@@ -81,20 +81,20 @@ export const BRIDE_INFO = [
   {
     relation: "신부",
     name: BRIDE_FULLNAME,
-    phone: "010-0000-0000",
-    account: "우리은행 0000000000000",
+    phone: "010-8971-7689",
+    account: "우리은행 1002458451388",
   },
   {
     relation: "신부 아버지",
     name: BRIDE_FATHER,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000",
+    phone: "010-9838-2136",
+    account: "국민은행 795210242398",
   },
   {
     relation: "신부 어머니",
     name: BRIDE_MOTHER,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000000",
+    phone: "010-9830-2136",
+    account: "하나은행 12391008810207",
   },
 ]
 
@@ -112,19 +112,19 @@ export const GROOM_INFO = [
   {
     relation: "신랑",
     name: GROOM_FULLNAME,
-    phone: "010-0000-0000",
-    account: "하나은행 00000000000000",
+    phone: "010-4129-3151",
+    account: "하나은행 10591018732507",
   },
   {
     relation: "신랑 아버지",
     name: GROOM_FATHER,
-    phone: "010-0000-0000",
+    phone: "010-9390-3151",
     account: "신한은행 000000000000",
   },
   {
     relation: "신랑 어머니",
     name: GROOM_MOTHER,
-    phone: "010-0000-0000",
+    phone: "010-4182-3151",
     account: "국민은행 000000000000",
   },
 ]
