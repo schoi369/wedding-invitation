@@ -50,6 +50,52 @@ const NaverMap = () => {
     }
   }
 
+  const openTmap = () => {
+    const [lng, lat] = WEDDING_HALL_POSITION
+    const params = new URLSearchParams({
+      goalx: lng.toString(),
+      goaly: lat.toString(),
+      goalname: LOCATION,
+    })
+
+    switch (checkDevice()) {
+      case "android": {
+        const fallback = encodeURIComponent(
+          "https://play.google.com/store/apps/details?id=com.skt.tmap.ku",
+        )
+
+        window.location.href =
+          `intent://route?${params.toString()}` +
+          `#Intent;scheme=tmap;package=com.skt.tmap.ku;` +
+          `S.browser_fallback_url=${fallback};end`
+        break
+      }
+      case "ios": {
+        const appStoreUrl = "https://apps.apple.com/kr/app/tmap/id431589174"
+        const timer = window.setTimeout(() => {
+          window.location.href = appStoreUrl
+        }, 1500)
+
+        document.addEventListener(
+          "visibilitychange",
+          () => {
+            if (document.hidden) {
+              window.clearTimeout(timer)
+            }
+          },
+          { once: true },
+        )
+
+        window.location.href = `tmap://route?${params.toString()}`
+        break
+      }
+      default: {
+        alert("티맵은 모바일에서 확인하실 수 있습니다.")
+        break
+      }
+    }
+  }
+
   useEffect(() => {
     // 네이버 지도 SDK가 로드되면 지도를 초기화합니다.
     if (naver) {
@@ -184,24 +230,7 @@ const NaverMap = () => {
 
         {/* 티맵 연동 */}
         <button
-          onClick={() => {
-            switch (checkDevice()) {
-              case "ios":
-              case "android": {
-                const params = new URLSearchParams({
-                  goalx: WEDDING_HALL_POSITION[0].toString(),
-                  goaly: WEDDING_HALL_POSITION[1].toString(),
-                  goalName: LOCATION,
-                })
-                window.open(`tmap://route?${params.toString()}`, "_self")
-                break
-              }
-              default: {
-                alert("모바일에서 확인하실 수 있습니다.")
-                break
-              }
-            }
-          }}
+          onClick={openTmap}
         >
           <img src={tmapIcon} alt="t-map-icon" />
           티맵
