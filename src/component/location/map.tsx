@@ -186,14 +186,40 @@ const NaverMap = () => {
         <button
           onClick={() => {
             switch (checkDevice()) {
-              case "ios":
-              case "android": {
+              case "ios": {
+                // 원래 구현:
+                // const params = new URLSearchParams({
+                //   goalx: WEDDING_HALL_POSITION[0].toString(),
+                //   goaly: WEDDING_HALL_POSITION[1].toString(),
+                //   goalName: LOCATION,
+                // })
+                // window.open(`tmap://route?${params.toString()}`, "_self")
+
+                // 수정 구현: 티맵 URL 스킴 호환성을 위해 goalname 소문자 파라미터를 사용합니다.
                 const params = new URLSearchParams({
+                  goalname: LOCATION,
                   goalx: WEDDING_HALL_POSITION[0].toString(),
                   goaly: WEDDING_HALL_POSITION[1].toString(),
-                  goalName: LOCATION,
                 })
-                window.open(`tmap://route?${params.toString()}`, "_self")
+                window.location.href = `tmap://route?${params.toString()}`
+                break
+              }
+              case "android": {
+                // 원래 구현:
+                // const params = new URLSearchParams({
+                //   goalx: WEDDING_HALL_POSITION[0].toString(),
+                //   goaly: WEDDING_HALL_POSITION[1].toString(),
+                //   goalName: LOCATION,
+                // })
+                // window.open(`tmap://route?${params.toString()}`, "_self")
+
+                // 수정 구현: Android에서는 intent URL로 티맵 앱 패키지를 명시합니다.
+                const params = new URLSearchParams({
+                  goalname: LOCATION,
+                  goalx: WEDDING_HALL_POSITION[0].toString(),
+                  goaly: WEDDING_HALL_POSITION[1].toString(),
+                })
+                window.location.href = `intent://route?${params.toString()}#Intent;scheme=tmap;package=com.skt.tmap.ku;end`
                 break
               }
               default: {
