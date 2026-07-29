@@ -15,5 +15,8 @@ export const COVER_IMAGE = coverImage
  */
 export const GALLERY_IMAGES = Array.from(
   { length: 30 },
-  (_, idx) => galleryImageModules[`./image${idx + 1}.jpg`],
+  (_, idx) => {
+    const imageNumber = String(idx + 1).padStart(2, "0")
+    return galleryImageModules[`./image${imageNumber}.jpg`]
+  },
 ).filter((image): image is string => !!image)
