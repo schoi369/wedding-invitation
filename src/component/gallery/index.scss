@@ -21,6 +21,7 @@ $transition-duration: 0.3s;
       overflow: hidden;
       position: relative;
       z-index: 3;
+      touch-action: pan-y;
 
       .carousel-list {
         display: flex;

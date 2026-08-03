@@ -216,15 +216,18 @@ export const Gallery = () => {
       const status = statusRef.current
 
       if (status === "clicked") {
-        e.preventDefault()
         const xMove =
           e.targetTouches[0].clientX - dragOptionRef.current.startingClientX
         const yMove =
           e.targetTouches[0].clientY - dragOptionRef.current.startingClientY
+        const absXMove = Math.abs(xMove)
+        const absYMove = Math.abs(yMove)
+
         // 일정 거리 이상 움직였을 때만 드래그로 간주
-        if (Math.abs(xMove) > DRAG_SENSITIVITY) {
+        if (absXMove > DRAG_SENSITIVITY && absXMove > absYMove) {
+          e.preventDefault()
           setStatus("dragging")
-        } else if (Math.abs(yMove) > DRAG_SENSITIVITY) {
+        } else if (absYMove > DRAG_SENSITIVITY) {
           setStatus("clickCanceled")
         }
       } else if (status === "dragging") {
@@ -263,7 +266,9 @@ export const Gallery = () => {
     const carouselElement = carouselRef.current
 
     window.addEventListener("mousemove", onMouseMove)
-    carouselElement.addEventListener("touchmove", onTouchMove)
+    carouselElement.addEventListener("touchmove", onTouchMove, {
+      passive: false,
+    })
     window.addEventListener("mouseup", onMouseTouchUp)
     window.addEventListener("touchend", onMouseTouchUp)
     return () => {
