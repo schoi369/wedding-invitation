@@ -16,6 +16,7 @@ const CAROUSEL_ITEMS = GALLERY_IMAGES.map((item, idx) => (
 
 // 드래그 감도 설정
 const DRAG_SENSITIVITY = 15
+const MAX_VISIBLE_INDICATORS = 15
 
 /**
  * 캐러셀 상태 타입 정의
@@ -39,6 +40,56 @@ type DragOption = {
 }
 
 type ClickMove = "left" | "right" | null
+type IndicatorItem = number | "gap-start" | "gap-end"
+
+/**
+ * 사진 수가 많을 때 표시할 인디케이터를 계산합니다.
+ */
+const getIndicatorItems = (
+  currentIndex: number,
+  totalCount: number,
+): IndicatorItem[] => {
+  if (totalCount <= MAX_VISIBLE_INDICATORS) {
+    return Array.from({ length: totalCount }, (_, idx) => idx)
+  }
+
+  const lastIndex = totalCount - 1
+  const edgeVisibleCount = MAX_VISIBLE_INDICATORS - 2
+  const middleVisibleCount = MAX_VISIBLE_INDICATORS - 4
+  const middleRadius = Math.floor(middleVisibleCount / 2)
+
+  if (currentIndex < edgeVisibleCount - 1) {
+    return [
+      ...Array.from({ length: edgeVisibleCount }, (_, idx) => idx),
+      "gap-end",
+      lastIndex,
+    ]
+  }
+
+  if (currentIndex > lastIndex - edgeVisibleCount + 1) {
+    return [
+      0,
+      "gap-start",
+      ...Array.from(
+        { length: edgeVisibleCount },
+        (_, idx) => lastIndex - edgeVisibleCount + 1 + idx,
+      ),
+    ]
+  }
+
+  const middleStart = currentIndex - middleRadius
+
+  return [
+    0,
+    "gap-start",
+    ...Array.from(
+      { length: middleVisibleCount },
+      (_, idx) => middleStart + idx,
+    ),
+    "gap-end",
+    lastIndex,
+  ]
+}
 
 /**
  * 갤러리 컴포넌트입니다.
@@ -314,6 +365,11 @@ export const Gallery = () => {
     }
   }, [status])
 
+  const indicatorItems = useMemo(
+    () => getIndicatorItems(slide, CAROUSEL_ITEMS.length),
+    [slide],
+  )
+
   return (
     <>
       <LazyDiv className="card gallery">
@@ -387,15 +443,22 @@ export const Gallery = () => {
 
           {/* 하단 인디케이터 (점) */}
           <div className="carousel-indicator">
-            {CAROUSEL_ITEMS.map((_, idx) => (
-              <button
-                key={idx}
-                className={`indicator${idx === slide ? " active" : ""}`}
-                onClick={() =>
-                  onIndicatorClick(statusRef.current, slideRef.current, idx)
-                }
-              />
-            ))}
+            {indicatorItems.map((item) =>
+              typeof item === "number" ? (
+                <button
+                  key={item}
+                  className={`indicator${item === slide ? " active" : ""}`}
+                  aria-label={`${item + 1}번째 사진 보기`}
+                  onClick={() =>
+                    onIndicatorClick(statusRef.current, slideRef.current, item)
+                  }
+                />
+              ) : (
+                <span key={item} className="indicator-gap">
+                  ...
+                </span>
+              ),
+            )}
           </div>
         </div>
 
